@@ -24,7 +24,7 @@ brew install --cask bitwarden
 
 # Config zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
-# move files to .config/zsh
+# configure z4h
 
 # Config bitwarden ssh-agent
 
