@@ -16,13 +16,11 @@ brew update
 
 brew install coreutils
 
-brew install --cask font-fira-code
-brew install --cask font-fontawesome
-brew install --cask font-symbols-only-nerd-font
+brew install --cask raycast
 brew install --cask google-chrome
 brew install --cask visual-studio-code
+brew install --cask vlc
 brew install --cask bitwarden
-brew install --cask raycast
 
 # Config zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
