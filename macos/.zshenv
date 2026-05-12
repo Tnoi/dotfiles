@@ -1,5 +1,5 @@
 # default apps
-export TERMINAL=kitty
+export TERMINAL=terminal
 export EDITOR=vim
 export VISUAL=code
 export BROWSER=google-chrome-stable
