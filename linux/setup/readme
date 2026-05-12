@@ -1,0 +1,26 @@
+# Config zsh
+> sh -c "$(curl -fsSL https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
+
+# Clone dotfiles
+> git clone https://github.com/Tnoi/dotfiles.git
+
+# Config all
+> pacman -S --needed - < pkg.lst
+> cp dotfiles/* ~
+
+# Config sddm
+> sh -c "$(curl -fsSL https://raw.githubusercontent.com/keyitdev/sddm-astronaut-theme/master/setup.sh)"
+
+# Config theme
+> gsettings set org.gnome.desktop.interface gtk-theme jqnMono
+
+# Install yay
+> git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+> yay -S --needed - < pkg_aur.lst
+
+# Config ssh
+# bitwarden ssh-agent
+
+# Config certs
+> mkdir ~/.pki/nssdb $$ certutil -N -d $HOME/.pki/nssdb
+> pk12util -d $HOME/.pki/nssdb/ -i "path/to/cert.p12" -W "password"
