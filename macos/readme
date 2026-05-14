@@ -20,12 +20,11 @@ brew install --cask raycast
 brew install --cask google-chrome
 brew install --cask visual-studio-code
 brew install --cask vlc
-brew install --cask bitwarden
 
 # Config zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
-# configure z4h
 
-# Config bitwarden ssh-agent
+# Config bitwarden & ssh-agent
+brew install --cask bitwarden
 
 # Config certs
