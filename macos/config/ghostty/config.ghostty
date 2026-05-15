@@ -1,7 +1,9 @@
 theme = "Dark Modern"
+background-opacity = 0.975
 
 window-width = 120
 window-height = 35
 
 font-family = "FiraCode"
-font-size = 14
+font-size = 15
+font-feature = liga
