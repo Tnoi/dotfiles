@@ -15,18 +15,21 @@ brew update
 
 brew install coreutils
 brew install eza
+brew install neovim
 
 brew install --cask raycast
 brew install --cask google-chrome
 brew install --cask ghostty
 brew install --cask visual-studio-code
+brew install --cask bitwarden
 brew install --cask vlc
 brew install --cask font-fira-code
 
-# Config zsh
+# Config zsh4humans
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
 
-# Config bitwarden & ssh-agent
-brew install --cask bitwarden
+# Config bitwarden ssh-agent
 
-# Config certs
+# Config LazyVim
+git clone https://github.com/LazyVim/starter ~/.config/nvim
+rm -rf ~/.config/nvim/.git
