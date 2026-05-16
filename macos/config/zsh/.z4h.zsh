@@ -1,11 +1,3 @@
-#      _  _   _               _     
-#  ___| || | | |__    _______| |__  
-# |_  / || |_| '_ \  |_  / __| '_ \ 
-#  / /|__   _| | | |_ / /\__ \ | | |
-# /___|  |_| |_| |_(_)___|___/_| |_|
-#
-# --------------------------------------
-                                   
 # Documentation: https://github.com/romkatv/zsh4humans/blob/v5/README.md.
 
 # Periodic auto-update on Zsh startup: 'ask' or 'no'.
