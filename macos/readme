@@ -27,9 +27,3 @@ brew install --cask font-fira-code
 
 # Config zsh4humans
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
-
-# Config bitwarden ssh-agent
-
-# Config LazyVim
-git clone https://github.com/LazyVim/starter ~/.config/nvim
-rm -rf ~/.config/nvim/.git
