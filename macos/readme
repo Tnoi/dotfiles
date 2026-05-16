@@ -2,14 +2,13 @@ xcode-select --install
 
 touch .hushlogin
 
-# Config Dock
 defaults write com.apple.dock autohide-delay -float 0.025; killall Dock
 defaults write com.apple.dock expose-group-apps -float 0.025; killall Dock
 defaults write com.apple.dock show-recents -float 0; killall Dock
 defaults write com.apple.dock trash-full -float 0; killall Dock
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 defaults write com.apple.desktopservices DSDontWriteNetworkStores false
-# Config Homebrew
+
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew update
 
@@ -25,5 +24,4 @@ brew install --cask bitwarden
 brew install --cask vlc
 brew install --cask font-fira-code
 
-# Config zsh4humans
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
