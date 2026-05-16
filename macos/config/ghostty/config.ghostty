@@ -16,6 +16,8 @@ adjust-cell-height = 1
 
 shell-integration = zsh
 shell-integration-features = no-cursor
+
+cursor-style = bar
 copy-on-select = clipboard
 
 macos-option-as-alt = true
