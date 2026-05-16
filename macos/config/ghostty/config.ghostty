@@ -1,4 +1,4 @@
-theme = dark:Dark Modern, light: Material
+theme = dark:Gruvbox Dark Hard, light: Gruvbox Light Hard
 background-opacity = 0.975
 
 window-width = 120
