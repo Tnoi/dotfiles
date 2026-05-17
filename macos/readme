@@ -9,6 +9,8 @@ defaults write com.apple.dock trash-full -float 0; killall Dock
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 defaults write com.apple.desktopservices DSDontWriteNetworkStores false
 
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
+
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew update
 
@@ -23,5 +25,3 @@ brew install --cask visual-studio-code
 brew install --cask bitwarden
 brew install --cask vlc
 brew install --cask font-fira-code
-
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
