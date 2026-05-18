@@ -32,3 +32,6 @@ alias ls='eza --group-directories-first'
 alias ll='eza -l --group-directories-first'
 alias la='eza -la --group-directories-first'
 alias mkdir='mkdir -p'
+
+alias nosleep='sudo pmset -a disablesleep 1'
+alias sleep='sudo pmset -a disablesleep 0'
