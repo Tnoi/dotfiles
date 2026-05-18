@@ -7,7 +7,7 @@ defaults write com.apple.dock expose-group-apps -float 0.025; killall Dock
 defaults write com.apple.dock show-recents -float 0; killall Dock
 defaults write com.apple.dock trash-full -float 0; killall Dock
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
-defaults write com.apple.desktopservices DSDontWriteNetworkStores false
+defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
 
