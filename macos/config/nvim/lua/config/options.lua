@@ -26,3 +26,4 @@ opt.smartcase = true                -- Smart case sensitivity in search
 
 opt.clipboard = "unnamedplus"       -- Use system clipboard
 opt.termguicolors = true            -- Enable true color support
+opt.showmode = false                -- Don't show mode since lualine will handle it

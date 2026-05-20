@@ -5,31 +5,51 @@ local map = vim.keymap.set
 -- Lazy
 map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Open lazy.nvim" })
 
--- new file
-map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
+-- Snacks
+map("n", "<leader>e", function() Snacks.explorer() end, { desc = "File Explorer" })
+map("n", "<leader>t", function() Snacks.terminal() end, { desc = "Open Terminal" })
+map("n", "<leader>d", function() Snacks.dashboard.open() end, { desc = "Open Dashboard" })
+map("n", "<leader>n", function() Snacks.picker.notifications() end, { desc = "Notification History" })
 
--- save file
-map({ "i", "x", "n", "s" }, "<D-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
+-- find
+map("n", "<leader>ff", function() Snacks.picker.files() end, { desc = "Find Files" })
+map("n", "<leader>fb", function() Snacks.picker.buffers() end, { desc = "Buffers" })
+map("n", "<leader>fp", function() Snacks.picker.projects() end, { desc = "Projects" })
+map("n", "<leader>fr", function() Snacks.picker.recent() end, { desc = "Recent" })
 
--- quit
-map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
+-- git
+map("n", "<leader>gb", function() Snacks.picker.git_branches() end, { desc = "Git Branches" })
+map("n", "<leader>gl", function() Snacks.picker.git_log() end, { desc = "Git Log" })
+map("n", "<leader>gL", function() Snacks.picker.git_log_line() end, { desc = "Git Log Line" })
+map("n", "<leader>gs", function() Snacks.picker.git_status() end, { desc = "Git Status" })
+map("n", "<leader>gS", function() Snacks.picker.git_stash() end, { desc = "Git Stash" })
+map("n", "<leader>gd", function() Snacks.picker.git_diff() end, { desc = "Git Diff (Hunks)" })
+map("n", "<leader>gf", function() Snacks.picker.git_log_file() end, { desc = "Git Log File" })
+map({ "n", "v" }, "<leader>gB", function() Snacks.gitbrowse() end, { desc = "Git Browse" })
 
--- movement
-map("n", "0", "$", { desc = "Move to end of line" })
-map("n", "1", "0", { desc = "Move to start of line" })
+-- search
+map("n", "<leader>sg", function() Snacks.picker.grep() end, { desc = "Grep" })
+map("n", "<leader>sb", function() Snacks.picker.buffers() end, { desc = "Buffers" })
+map("n", "<leader>sB", function() Snacks.picker.buffer_lines() end, { desc = "Buffer Lines" })
+map("n", "<leader>sc", function() Snacks.picker.command_history() end, { desc = "Command History" })
+map("n", "<leader>sC", function() Snacks.picker.commands() end, { desc = "Commands" })
+map("n", "<leader>sk", function() Snacks.picker.keymaps() end, { desc = "Keymaps" })
+
+--buffers
+map("n", "<leader>bd", function() Snacks.bufdelete() end, { desc = "Delete Buffer" })
+map("n", "<leader>bl", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+map("n", "<leader>bh", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 
 -- windows
 map("n", "<leader>ww", "<cmd>split<cr>", { desc = "Horizontal split" })
 map("n", "<leader>wv", "<cmd>vsplit<cr>", { desc = "Vertical split" })
 map("n", "<leader>wd", "<cmd>close<cr>", { desc = "Delete window" })
 
--- windows: move to window using <ctrl> hjkl keys
 map("n", "<C-j>", "<C-w>j", { desc = "Move to lower window" })
 map("n", "<C-k>", "<C-w>k", { desc = "Move to upper window" })
 map("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
 map("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
 
--- windows: resize using <ctrl> arrow keys
 map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
 map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
 map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
@@ -42,3 +62,15 @@ map("n", "<leader><tab>l", "<cmd>tabnext<cr>", { desc = "Next tab" })
 map("n", "<leader><tab>h", "<cmd>tabprevious<cr>", { desc = "Previous tab" })
 map("n", "<leader><tab>0", "<cmd>tablast<cr>", { desc = "Last tab" })
 map("n", "<leader><tab>1", "<cmd>tabfirst<cr>", { desc = "First tab" })
+
+-- movement
+map("n", "0", "$", { desc = "Move to end of line" })
+map("n", "1", "0", { desc = "Move to start of line" })
+map("n", "00", "G", { desc = "Move to end of file" })
+map("n", "11", "gg", { desc = "Move to start of file" })
+
+-- save
+map({ "i", "x", "n", "s" }, "<D-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
+
+-- quit
+map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
