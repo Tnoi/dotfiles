@@ -22,6 +22,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Setup other settings
+require("config.autocmds")
 require("config.options")
 require("config.keymaps")
 
