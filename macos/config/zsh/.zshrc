@@ -33,5 +33,7 @@ alias ll='eza -l --group-directories-first'
 alias la='eza -la --group-directories-first'
 alias mkdir='mkdir -p'
 
+alias show_ds='fd -H ".DS_Store" .'
+
 alias nosleep='sudo pmset -a disablesleep 1'
 alias sleep='sudo pmset -a disablesleep 0'
