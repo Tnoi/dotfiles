@@ -1,5 +1,4 @@
 -- lua/config/options.lua
--- Core Neovim options
 
 local opt = vim.opt
 

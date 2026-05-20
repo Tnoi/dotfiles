@@ -1,5 +1,4 @@
 -- lua/config/lazy.lua
--- Moved startup/bootstrap logic from top-level init.lua
 
 -- Bootstrap lazy.nvim if not installed
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

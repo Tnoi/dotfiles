@@ -1,3 +1,5 @@
+-- lua/plugins/colorscheme.lua
+
 return {
     {
         "ellisonleao/gruvbox.nvim",

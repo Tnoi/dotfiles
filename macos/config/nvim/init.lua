@@ -1,3 +1,3 @@
--- Require central lazy bootstrap module
+-- init.lua
 
 require("config.lazy")
