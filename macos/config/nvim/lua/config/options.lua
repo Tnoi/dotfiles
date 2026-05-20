@@ -19,6 +19,9 @@ opt.cursorline = true               -- Highlight the current line
 opt.scrolloff = 8                   -- Keep 8 lines visible around cursor
 opt.sidescrolloff = 8               -- Keep 8 columns visible when scrolling
 
+opt.splitbelow = true               -- Open horizontal splits below the current window
+opt.splitright = true               -- Open vertical splits to the right of the current window
+
 opt.wrap = false                    -- Disable line wrapping
 
 opt.ignorecase = true               -- Ignore case in search
@@ -27,3 +30,4 @@ opt.smartcase = true                -- Smart case sensitivity in search
 opt.clipboard = "unnamedplus"       -- Use system clipboard
 opt.termguicolors = true            -- Enable true color support
 opt.showmode = false                -- Don't show mode since lualine will handle it
+opt.signcolumn = "yes"              -- Always show the sign column

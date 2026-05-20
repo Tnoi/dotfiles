@@ -8,22 +8,12 @@ map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Open lazy.nvim" })
 -- Snacks
 map("n", "<leader>e", function() Snacks.explorer() end, { desc = "File Explorer" })
 map("n", "<leader>t", function() Snacks.terminal() end, { desc = "Open Terminal" })
-map("n", "<leader>d", function() Snacks.dashboard.open() end, { desc = "Open Dashboard" })
-map("n", "<leader>n", function() Snacks.picker.notifications() end, { desc = "Notification History" })
 
 -- find
 map("n", "<leader>ff", function() Snacks.picker.files() end, { desc = "Find Files" })
 map("n", "<leader>fb", function() Snacks.picker.buffers() end, { desc = "Buffers" })
 map("n", "<leader>fp", function() Snacks.picker.projects() end, { desc = "Projects" })
 map("n", "<leader>fr", function() Snacks.picker.recent() end, { desc = "Recent" })
-
--- search
-map("n", "<leader>sg", function() Snacks.picker.grep() end, { desc = "Grep" })
-map("n", "<leader>sb", function() Snacks.picker.buffers() end, { desc = "Buffers" })
-map("n", "<leader>sB", function() Snacks.picker.buffer_lines() end, { desc = "Buffer Lines" })
-map("n", "<leader>sc", function() Snacks.picker.command_history() end, { desc = "Command History" })
-map("n", "<leader>sC", function() Snacks.picker.commands() end, { desc = "Commands" })
-map("n", "<leader>sk", function() Snacks.picker.keymaps() end, { desc = "Keymaps" })
 
 --buffers
 map("n", "<leader>bd", function() Snacks.bufdelete() end, { desc = "Delete Buffer" })
