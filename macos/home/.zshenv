@@ -1,5 +1,7 @@
 export PATH=$PATH:$HOME/.local/bin
 
+test
+
 export SHELL_SESSIONS_DISABLE=1
 export HOMEBREW_NO_ANALYTICS=1
 
