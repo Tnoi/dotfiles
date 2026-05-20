@@ -17,16 +17,6 @@ map("n", "<leader>fb", function() Snacks.picker.buffers() end, { desc = "Buffers
 map("n", "<leader>fp", function() Snacks.picker.projects() end, { desc = "Projects" })
 map("n", "<leader>fr", function() Snacks.picker.recent() end, { desc = "Recent" })
 
--- git
-map("n", "<leader>gb", function() Snacks.picker.git_branches() end, { desc = "Git Branches" })
-map("n", "<leader>gl", function() Snacks.picker.git_log() end, { desc = "Git Log" })
-map("n", "<leader>gL", function() Snacks.picker.git_log_line() end, { desc = "Git Log Line" })
-map("n", "<leader>gs", function() Snacks.picker.git_status() end, { desc = "Git Status" })
-map("n", "<leader>gS", function() Snacks.picker.git_stash() end, { desc = "Git Stash" })
-map("n", "<leader>gd", function() Snacks.picker.git_diff() end, { desc = "Git Diff (Hunks)" })
-map("n", "<leader>gf", function() Snacks.picker.git_log_file() end, { desc = "Git Log File" })
-map({ "n", "v" }, "<leader>gB", function() Snacks.gitbrowse() end, { desc = "Git Browse" })
-
 -- search
 map("n", "<leader>sg", function() Snacks.picker.grep() end, { desc = "Grep" })
 map("n", "<leader>sb", function() Snacks.picker.buffers() end, { desc = "Buffers" })

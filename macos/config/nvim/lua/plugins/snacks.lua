@@ -8,7 +8,6 @@ return {
         dashboard = { enabled = true },
         explorer = { enabled = true },
         indent = { enabled = true },
-        lazygit = { enabled = true },
         notifier = { enabled = true },
         picker = {
             enabled = true,
