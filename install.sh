@@ -1,8 +1,9 @@
 #!/bin/bash
 
-set -euo pipefail
-
 echo "----- Starting macOS setup -----"
+
+set -euo pipefail
+sudo -v
 
 # install xCode Command Line Tools
 if ([[ "$(uname -s)" == "Darwin" ]] && ! xcode-select -p &>/dev/null); then
@@ -26,7 +27,6 @@ defaults write com.apple.dock trash-full -float 0
 killall Dock
 
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
-defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 
 csrutil status
 
@@ -43,9 +43,11 @@ brew update
 
 echo "Installing Homebrew packages..."
 brew install coreutils
+brew install grep
+brew install git
+
 brew install eza
 brew install fd
-brew install git
 brew install stow
 brew install neovim
 
@@ -57,6 +59,8 @@ brew install --cask visual-studio-code
 brew install --cask bitwarden
 brew install --cask vlc
 brew install --cask font-fira-code
+
+brew cleanup
 
 # setup zsh4humans
 echo "Installing zsh4humans..."
@@ -80,5 +84,12 @@ echo "Stowing dotfiles..."
 cd "$HOME/dotfiles" || exit
 
 stow -R -t $HOME ghostty nvim zsh home
+
+# manual setup
+echo "Manual setup steps:"
+echo "1. Set up Raycast"
+echo "2. Set up Visual Studio Code"
+echo "3. Set up Bitwarden ssh-agent"
+echo "4. Set up SSH authorized_keys"
 
 echo "----- Finished macOS setup -----"
