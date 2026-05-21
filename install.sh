@@ -83,8 +83,7 @@ fi
 echo "Stowing dotfiles..."
 cd "$HOME/dotfiles" || exit
 
-#stow -R -t $HOME ghostty nvim zsh home
-stow -R .
+stow -R -t $HOME ghostty nvim zsh home
 
 # manual setup
 echo "Manual setup steps:"
