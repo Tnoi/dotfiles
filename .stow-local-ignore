@@ -1,9 +1,0 @@
-# Comments and blank lines are allowed.
-
-\.git
-\.gitmodules
-
-^/README.*
-
-^/Raycast.rayconfig
-^/install.sh
