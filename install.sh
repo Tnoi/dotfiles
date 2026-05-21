@@ -30,8 +30,6 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 
 csrutil status
 
-echo "macOS system preferences setup complete."
-
 # setup Hombrew
 if ! command -v brew &>/dev/null; then
     echo "Installing Homebrew..."
@@ -60,7 +58,13 @@ brew install --cask bitwarden
 brew install --cask vlc
 brew install --cask font-fira-code
 
-echo "Homebrew setup complete."
+# setup zsh4humans
+echo "Installing zsh4humans..."
+if command -v curl >/dev/null 2>&1; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
+else
+  sh -c "$(wget -O- https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
+fi
 
 # clone dotfiles repository
 if [[ ! -d "$HOME/dotfiles" ]]; then
