@@ -4,6 +4,7 @@ z4h source $ZDOTDIR/.z4h.zsh
 # history configuration
 export HISTSIZE=10000
 export SAVEHIST=10000
+export HISTFILE=~/.zsh_history
 setopt EXTENDED_HISTORY         # Write the history file in the ':start:elapsed;command' format
 setopt INC_APPEND_HISTORY       # Write to the history file immediately, not when the shell exits
 setopt SHARE_HISTORY            # Share history between all sessions
