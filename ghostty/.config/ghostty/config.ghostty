@@ -20,13 +20,7 @@ shell-integration-features = no-cursor
 cursor-style = bar
 copy-on-select = clipboard
 
-macos-option-as-alt = true
+macos-option-as-alt = false
 macos-titlebar-style = tabs
 
 keybind = super+r=reload_config
-
-keybind = super+shift+1=goto_tab:1
-keybind = super+shift+2=goto_tab:2
-keybind = super+shift+3=goto_tab:3
-keybind = super+shift+4=goto_tab:4
-keybind = super+shift+5=goto_tab:5

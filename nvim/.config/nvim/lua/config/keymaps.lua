@@ -46,8 +46,8 @@ map("n", "<leader><tab>1", "<cmd>tabfirst<cr>", { desc = "First tab" })
 -- movement
 map("n", "0", "$", { desc = "Move to end of line" })
 map("n", "1", "0", { desc = "Move to start of line" })
-map("n", "00", "G", { desc = "Move to end of file" })
-map("n", "11", "gg", { desc = "Move to start of file" })
+map("n", "=", "G", { desc = "Move to end of file" })
+map("n", "!", "gg", { desc = "Move to start of file" })
 
 -- save
 map({ "i", "x", "n", "s" }, "<D-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
