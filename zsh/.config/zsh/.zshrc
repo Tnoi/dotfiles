@@ -2,9 +2,9 @@
 z4h source $ZDOTDIR/.z4h.zsh
 
 # history configuration
-export HISTSIZE=10000
-export SAVEHIST=10000
-export HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE=$HOME/.local/history/.zsh_history
 setopt EXTENDED_HISTORY         # Write the history file in the ':start:elapsed;command' format
 setopt INC_APPEND_HISTORY       # Write to the history file immediately, not when the shell exits
 setopt SHARE_HISTORY            # Share history between all sessions
@@ -20,8 +20,6 @@ setopt no_auto_menu             # require an extra TAB press to open the complet
 z4h bindkey z4h-backward-kill-word  Ctrl+Backspace
 z4h bindkey z4h-backward-kill-zword Ctrl+Alt+Backspace
 
-z4h bindkey z4h-cd-back    Alt+Left
-z4h bindkey z4h-cd-forward Alt+Right
 z4h bindkey z4h-cd-up      Alt+Up
 z4h bindkey z4h-cd-down    Alt+Down
 
