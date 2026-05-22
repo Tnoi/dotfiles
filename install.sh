@@ -20,14 +20,15 @@ fi
 # setup macOS system preferences
 echo "Setting up macOS system preferences..."
 
-defaults write com.apple.dock autohide-delay -float 0.025
-defaults write com.apple.dock expose-group-apps -float 0.025
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock autohide-delay -float 0
+defaults write com.apple.dock mineffect -string scale
 defaults write com.apple.dock show-recents -float 0
-defaults write com.apple.dock trash-full -float 0
+defaults write com.apple.dock static-only -bool true
+defaults write com.apple.dock expose-group-apps -int 0
 killall Dock
 
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
-defaults write NSWindowShouldDragOnGesture -bool true
 
 csrutil status
 
