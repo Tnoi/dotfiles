@@ -27,6 +27,7 @@ defaults write com.apple.dock trash-full -float 0
 killall Dock
 
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+defaults write NSWindowShouldDragOnGesture -bool true
 
 csrutil status
 
@@ -48,6 +49,7 @@ brew install git
 
 brew install eza
 brew install fd
+brew install fzf
 brew install stow
 brew install neovim
 
