@@ -1,7 +1,7 @@
 theme = dark:Gruvbox Dark Hard, light: Gruvbox Light Hard
 
-window-width = 158
-window-height = 40
+window-width = 157
+window-height = 39
 
 background-opacity = 0.9
 background-blur = 15

@@ -52,6 +52,8 @@ brew install eza
 brew install fd
 brew install fzf
 brew install stow
+
+brew install yazi
 brew install neovim
 
 echo "Installing Homebrew cask applications..."

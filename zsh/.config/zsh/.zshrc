@@ -36,3 +36,12 @@ alias show_ds_store='fd -H ".DS_Store" .'
 
 alias sleep_disable='sudo pmset -a disablesleep 1'
 alias sleep_enable='sudo pmset -a disablesleep 0'
+
+# functions
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+	command rm -f -- "$tmp"
+}
