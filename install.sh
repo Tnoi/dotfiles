@@ -42,6 +42,7 @@ fi
 brew analytics off
 brew update
 
+
 echo "Installing Homebrew packages..."
 brew install coreutils
 brew install grep
