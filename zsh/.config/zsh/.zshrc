@@ -5,6 +5,7 @@ z4h source $ZDOTDIR/.z4h.zsh
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=$HOME/.local/history/.zsh_history
+
 setopt EXTENDED_HISTORY         # Write the history file in the ':start:elapsed;command' format
 setopt INC_APPEND_HISTORY       # Write to the history file immediately, not when the shell exits
 setopt SHARE_HISTORY            # Share history between all sessions
@@ -27,6 +28,7 @@ z4h bindkey z4h-cd-down    Alt+Down
 alias root='cd /'
 alias home='cd $HOME'
 alias c='clear'
+alias cd='z'
 alias ls='eza --group-directories-first'
 alias ll='eza -l --group-directories-first'
 alias la='eza -la --group-directories-first'
@@ -45,3 +47,6 @@ function y() {
 	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
 	command rm -f -- "$tmp"
 }
+
+# evals
+eval "$(zoxide init zsh)"
