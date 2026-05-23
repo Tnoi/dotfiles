@@ -1,7 +1,7 @@
 export SHELL_SESSIONS_DISABLE=1
 export HOMEBREW_NO_ANALYTICS=1
 
-export EDITOR="nvim"
+export EDITOR="code"
 
 export SSH_AUTH_SOCK=$HOME/.bitwarden-ssh-agent.sock
 
