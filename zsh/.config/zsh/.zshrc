@@ -39,6 +39,8 @@ alias show_ds_store='fd -H ".DS_Store" .'
 alias sleep_disable='sudo pmset -a disablesleep 1'
 alias sleep_enable='sudo pmset -a disablesleep 0'
 
+alias nvim-basic='NVIM_APPNAME="nvim-basic" nvim'
+
 # functions
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd

@@ -91,7 +91,7 @@ fi
 echo "Stowing dotfiles..."
 cd "$HOME/dotfiles" || exit
 
-stow -R -t $HOME ghostty nvim zsh home wallpapers
+stow -R -t $HOME ghostty raycast yazi zsh home wallpapers
 # manual setup
 echo "Manual setup steps:"
 echo "1. Set up Raycast"
