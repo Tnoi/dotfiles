@@ -48,12 +48,13 @@ brew install coreutils
 brew install grep
 brew install git
 
-brew install eza
 brew install stow
+brew install eza
 brew install fd
 brew install fzf
 brew install ripgrep
 brew install zoxide
+brew install exiftool
 
 brew install yazi
 brew install neovim
