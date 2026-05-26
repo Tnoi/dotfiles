@@ -8,7 +8,7 @@ window-save-state = always
 background-opacity = 0.9
 background-blur = 15
 
-font-family = "FiraCode"
+font-family = "FiraCode Nerd Font Mono"
 font-style = Regular
 font-size = 15
 font-feature = liga

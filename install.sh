@@ -66,16 +66,16 @@ brew install --cask ghostty
 brew install --cask visual-studio-code
 brew install --cask bitwarden
 brew install --cask vlc
-brew install --cask font-fira-code
+brew install --cask font-fira-code-nerd-font
 
 brew cleanup
 
 # setup zsh4humans
 echo "Installing zsh4humans..."
 if command -v curl >/dev/null 2>&1; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
 else
-  sh -c "$(wget -O- https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
+    sh -c "$(wget -O- https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
 fi
 
 # clone dotfiles repository
@@ -91,7 +91,7 @@ fi
 echo "Stowing dotfiles..."
 cd "$HOME/dotfiles" || exit
 
-stow -R -t $HOME ghostty raycast yazi zsh home wallpapers
+stow -R -t $HOME ghostty nvim raycast yazi zsh home wallpapers
 # manual setup
 echo "Manual setup steps:"
 echo "1. Set up Raycast"

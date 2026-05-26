@@ -20,5 +20,5 @@ opt.autoindent = false
 opt.wrap = false
 
 opt.cursorline = true
-opt.scrolloff = 8
-opt.sidescrolloff = 16
+opt.scrolloff = 10
+opt.sidescrolloff = 10
