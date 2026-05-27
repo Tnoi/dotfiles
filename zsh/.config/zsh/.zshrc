@@ -29,6 +29,7 @@ alias root='cd /'
 alias home='cd $HOME'
 alias c='clear'
 alias cd='z'
+alias lg='lazygit'
 alias ls='eza --group-directories-first'
 alias ll='eza -l --group-directories-first'
 alias la='eza -la --group-directories-first'
@@ -44,5 +45,5 @@ function y() {
 }
 
 source <(fzf --zsh)
-
 eval "$(zoxide init zsh)"
+
