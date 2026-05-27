@@ -28,14 +28,10 @@ After running the installation script, complete these manual steps:
 │   └── .zshenv
 ├── nvim/
 │   └── .config/nvim/
-│       ├── init.lua
-│       ├── lua/
-│       │   ├── config/ 
-│       │   └── plugins/
-│       └── lazy-lock.json
 ├── raycast/              
 │   └── .config/raycast/
-├── wallpapers/  
+├── wallpapers/              
+│   └── Pictures/Wallpapers/
 ├── yazi/                 
 │   └── .config/yazi
 ├── zsh/                  
