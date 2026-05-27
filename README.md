@@ -1,5 +1,3 @@
-# 🔧 Dotfiles
-
 ## 🚀 Quick Start
 
 ### Automated Setup
