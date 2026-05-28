@@ -56,8 +56,9 @@ brew install ripgrep
 brew install zoxide
 brew install exiftool
 
-brew install yazi
 brew install neovim
+brew install lazygit
+brew install yazi
 
 echo "Installing Homebrew cask applications..."
 brew install --cask raycast
