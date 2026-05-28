@@ -5,7 +5,7 @@
     email = tmunozferrer@gmail.com
     signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOBoanbBADPcqvfpZ27UlzBhjHBSrAfA4TdFXim0pP5s
 [core]
-	editor = code
+	editor = nvim
 	excludesfile = ~/.gitignore
 [commit]
     gpgsign = true
