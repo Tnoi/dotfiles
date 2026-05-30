@@ -48,13 +48,16 @@ brew install coreutils
 brew install grep
 brew install git
 
-brew install stow
-brew install eza
+brew install ripgrep
 brew install fd
 brew install fzf
-brew install ripgrep
-brew install zoxide
 brew install exiftool
+brew install eza
+brew install zoxide
+brew install stow
+
+brew install tree-sitter-cli
+brew install npm
 
 brew install neovim
 brew install lazygit

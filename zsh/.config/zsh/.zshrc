@@ -35,13 +35,15 @@ alias ll='eza -l --group-directories-first'
 alias la='eza -la --group-directories-first'
 alias mkdir='mkdir -p'
 
+alias icloud='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
+
 # functions
 function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	command yazi "$@" --cwd-file="$tmp"
-	IFS= read -r -d '' cwd < "$tmp"
-	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
-	command rm -f -- "$tmp"
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    command yazi "$@" --cwd-file="$tmp"
+    IFS= read -r -d '' cwd < "$tmp"
+    [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+    command rm -f -- "$tmp"
 }
 
 source <(fzf --zsh)
