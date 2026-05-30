@@ -17,10 +17,6 @@ setopt HIST_IGNORE_ALL_DUPS     # Delete an old recorded event if a new event is
 setopt glob_dots                # no special treatment for file names with a leading dot
 setopt no_auto_menu             # require an extra TAB press to open the completion menu
 
-# keybindings
-z4h bindkey z4h-backward-kill-word  Ctrl+Backspace
-z4h bindkey z4h-backward-kill-zword Ctrl+Alt+Backspace
-
 z4h bindkey z4h-cd-up      Alt+Up
 z4h bindkey z4h-cd-down    Alt+Down
 
@@ -52,4 +48,3 @@ function y() {
 
 source <(fzf --zsh)
 eval "$(zoxide init zsh)"
-

@@ -21,4 +21,3 @@ require("which-key").add({
     { "s",         group = "surrounding" },
     { "z",         group = "fold" },
 })
-

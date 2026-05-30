@@ -66,4 +66,3 @@ opt.redrawtime = 10000
 opt.maxmempattern = 20000
 
 opt.foldlevel = 99
-

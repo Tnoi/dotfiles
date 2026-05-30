@@ -109,4 +109,3 @@ map("n", "<leader>r", "<cmd>source %<cr>", { desc = "Reload" })
 -- quit
 map("n", "<leader>qq", "<cmd>q<cr>", { desc = "Quit" })
 map("n", "<leader>q!", "<cmd>q!<cr>", { desc = "Force quit" })
-

@@ -3,4 +3,3 @@ vim.g.maplocalleader = " "
 
 require("config")
 require("plugins")
-

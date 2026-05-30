@@ -52,4 +52,3 @@ autocmd("RecordingLeave", {
         vim.opt.cmdheight = 0
     end,
 })
-

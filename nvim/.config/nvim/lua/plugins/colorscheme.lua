@@ -19,4 +19,3 @@ require("auto-dark-mode").setup({
     end,
 })
 require("auto-dark-mode").init()
-

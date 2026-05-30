@@ -12,4 +12,3 @@ require("plugins/nvim-treesitter")
 
 require("plugins/mini")
 require("plugins/which-key")
-
