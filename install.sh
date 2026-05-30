@@ -91,11 +91,11 @@ echo "Stowing dotfiles..."
 cd "$HOME/.dotfiles" || exit
 
 stow -R -t $HOME ghostty home nvim raycast wallpapers yazi zsh
+
 # manual setup
 echo "Manual setup steps:"
 echo "1. Set up Raycast"
 echo "2. Set up Visual Studio Code"
 echo "3. Set up Bitwarden ssh-agent"
-echo "4. Set up SSH authorized_keys"
 
 echo "----- Finished macOS setup -----"
