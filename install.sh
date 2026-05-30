@@ -47,18 +47,12 @@ echo "Installing Homebrew packages..."
 brew install coreutils
 brew install grep
 brew install git
-
-brew install ripgrep
 brew install fd
 brew install fzf
 brew install exiftool
 brew install eza
 brew install zoxide
 brew install stow
-
-brew install python
-brew install npm
-brew install tree-sitter-cli
 
 brew install neovim
 brew install lazygit
@@ -86,17 +80,17 @@ fi
 # clone dotfiles repository
 if [[ ! -d "$HOME/dotfiles" ]]; then
     echo "Cloning dotfiles repository..."
-    git clone https://github.com/Tnoi/dotfiles.git "$HOME/dotfiles"
+    git clone https://github.com/Tnoi/dotfiles.git "$HOME/.dotfiles"
 else
     echo "Dotfiles repository already exists. Pulling latest changes..."
-    cd "$HOME/dotfiles" && git pull
+    cd "$HOME/.dotfiles" && git pull
 fi
 
 # stow dotfiles
 echo "Stowing dotfiles..."
-cd "$HOME/dotfiles" || exit
+cd "$HOME/.dotfiles" || exit
 
-stow -R -t $HOME ghostty nvim raycast yazi zsh home wallpapers
+stow -R -t $HOME ghostty home nvim raycast wallpapers yazi zsh
 # manual setup
 echo "Manual setup steps:"
 echo "1. Set up Raycast"
