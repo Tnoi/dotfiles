@@ -25,17 +25,21 @@ z4h bindkey z4h-cd-up      Alt+Up
 z4h bindkey z4h-cd-down    Alt+Down
 
 # aliases
-alias root='cd /'
-alias home='cd $HOME'
-alias c='clear'
 alias cd='z'
+alias c='clear'
 alias lg='lazygit'
+
 alias ls='eza --group-directories-first'
 alias ll='eza -l --group-directories-first'
 alias la='eza -la --group-directories-first'
+
 alias mkdir='mkdir -p'
 
+alias root='cd /'
+alias home='cd $HOME'
 alias icloud='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
+
+alias python3='/usr/local/bin/python3.14'
 
 # functions
 function y() {

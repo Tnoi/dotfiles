@@ -56,8 +56,9 @@ brew install eza
 brew install zoxide
 brew install stow
 
-brew install tree-sitter-cli
+brew install python
 brew install npm
+brew install tree-sitter-cli
 
 brew install neovim
 brew install lazygit
