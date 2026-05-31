@@ -54,6 +54,8 @@ brew install eza
 brew install zoxide
 brew install stow
 
+brew install tree-sitter-cli
+
 brew install neovim
 brew install lazygit
 brew install yazi
