@@ -1,5 +1,4 @@
 local map = vim.keymap.set
-map("n", "<leader>ld", vim.lsp.buf.definition, { desc = "Go to Definition" })
 
 -- FzfLua
 map("n", "<leader><leader>", "<cmd>FzfLua files<cr>", { desc = "Files" })
