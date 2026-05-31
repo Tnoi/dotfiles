@@ -69,14 +69,6 @@ brew install --cask font-fira-code-nerd-font
 
 brew cleanup
 
-# setup zsh4humans
-echo "Installing zsh4humans..."
-if command -v curl >/dev/null 2>&1; then
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
-else
-    sh -c "$(wget -O- https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
-fi
-
 # clone dotfiles repository
 if [[ ! -d "$HOME/dotfiles" ]]; then
     echo "Cloning dotfiles repository..."
@@ -92,10 +84,20 @@ cd "$HOME/.dotfiles" || exit
 
 stow -R -t $HOME ghostty home nvim raycast wallpapers yazi zsh
 
+# setup zsh4humans
+echo "Installing zsh4humans..."
+if command -v curl >/dev/null 2>&1; then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
+else
+    sh -c "$(wget -O- https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
+fi
+
 # manual setup
 echo "Manual setup steps:"
-echo "1. Set up Raycast"
-echo "2. Set up Visual Studio Code"
-echo "3. Set up Bitwarden ssh-agent"
+echo "1. Make sure zsh files are in place"
+echo "2. Set up Raycast"
+echo "3. Set up Visual Studio Code"
+echo "4. Set up Bitwarden ssh-agent"
+echo "5. Set up Brave Browser"
 
 echo "----- Finished macOS setup -----"
