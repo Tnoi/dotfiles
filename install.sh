@@ -96,10 +96,10 @@ fi
 
 # manual setup
 echo "Manual setup steps:"
-echo "1. Make sure zsh files are in place"
+echo "1. Set up zsh files"
 echo "2. Set up Raycast"
 echo "3. Set up Visual Studio Code"
-echo "4. Set up Bitwarden ssh-agent"
+echo "4. Set up Bitwarden"
 echo "5. Set up Brave Browser"
 
 echo "----- Finished macOS setup -----"
