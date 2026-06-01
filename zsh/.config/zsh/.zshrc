@@ -36,6 +36,8 @@ alias home='cd $HOME'
 alias icloud='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
 
 alias python3='/usr/local/bin/python3.14'
+alias python='/usr/local/bin/python3.14'
+alias py='/usr/local/bin/python3.14'
 
 # functions
 function y() {

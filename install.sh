@@ -53,6 +53,7 @@ brew install exiftool
 brew install eza
 brew install zoxide
 brew install stow
+brew install python
 
 brew install neovim
 brew install lazygit
