@@ -29,6 +29,7 @@ defaults write com.apple.dock expose-group-apps -int 0
 killall Dock
 
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
 csrutil status
 
