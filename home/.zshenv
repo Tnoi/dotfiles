@@ -1,10 +1,11 @@
 export SHELL_SESSIONS_DISABLE=1
 export HOMEBREW_NO_ANALYTICS=1
 
-export EDITOR="nvim"
-export VISUAL="code"
+export EDITOR='nvim'
+export VISUAL='code'
 
 export SSH_AUTH_SOCK=$HOME/.bitwarden-ssh-agent.sock
+export FZF_DEFAULT_COMMAND='fd'
 
 export ZDOTDIR=~/.config/zsh
 
