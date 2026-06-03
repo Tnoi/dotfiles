@@ -1,40 +1,36 @@
 {
-  "plugins": {
-    "auto-dark-mode.nvim": {
-      "rev": "54058b4fe414bd64bd2904a6f8a63f1f14e3d8df",
-      "src": "https://github.com/f-person/auto-dark-mode.nvim"
-    },
-    "fzf-lua": {
-      "rev": "e3a71496027f2e3c4a60340170c04d66053d5c4c",
-      "src": "https://github.com/ibhagwan/fzf-lua"
-    },
-    "gruvbox.nvim": {
-      "rev": "154eb5ff5b96d0641307113fa385eaf0d36d9796",
-      "src": "https://github.com/ellisonleao/gruvbox.nvim"
-    },
-    "lazygit.nvim": {
-      "rev": "a04ad0dbc725134edbee3a5eea29290976695357",
-      "src": "https://github.com/kdheepak/lazygit.nvim"
-    },
-    "lualine.nvim": {
-      "rev": "221ce6b2d999187044529f49da6554a92f740a96",
-      "src": "https://github.com/nvim-lualine/lualine.nvim"
-    },
-    "nvim-web-devicons": {
-      "rev": "dfbfaa967a6f7ec50789bead7ef87e336c1fa63c",
-      "src": "https://github.com/nvim-tree/nvim-web-devicons"
-    },
-    "plenary.nvim": {
-      "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
-      "src": "https://github.com/nvim-lua/plenary.nvim"
-    },
-    "which-key.nvim": {
-      "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
-      "src": "https://github.com/folke/which-key.nvim"
-    },
-    "yazi.nvim": {
-      "rev": "8a26074568790bb5c73e56eb871a74709a13dd43",
-      "src": "https://github.com/mikavilpas/yazi.nvim"
+    "plugins": {
+        "fzf-lua": {
+            "rev": "e3a71496027f2e3c4a60340170c04d66053d5c4c",
+            "src": "https://github.com/ibhagwan/fzf-lua"
+        },
+        "gruvbox.nvim": {
+            "rev": "154eb5ff5b96d0641307113fa385eaf0d36d9796",
+            "src": "https://github.com/ellisonleao/gruvbox.nvim"
+        },
+        "lazygit.nvim": {
+            "rev": "a04ad0dbc725134edbee3a5eea29290976695357",
+            "src": "https://github.com/kdheepak/lazygit.nvim"
+        },
+        "lualine.nvim": {
+            "rev": "221ce6b2d999187044529f49da6554a92f740a96",
+            "src": "https://github.com/nvim-lualine/lualine.nvim"
+        },
+        "nvim-web-devicons": {
+            "rev": "dfbfaa967a6f7ec50789bead7ef87e336c1fa63c",
+            "src": "https://github.com/nvim-tree/nvim-web-devicons"
+        },
+        "plenary.nvim": {
+            "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
+            "src": "https://github.com/nvim-lua/plenary.nvim"
+        },
+        "which-key.nvim": {
+            "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
+            "src": "https://github.com/folke/which-key.nvim"
+        },
+        "yazi.nvim": {
+            "rev": "8a26074568790bb5c73e56eb871a74709a13dd43",
+            "src": "https://github.com/mikavilpas/yazi.nvim"
+        }
     }
-  }
 }
