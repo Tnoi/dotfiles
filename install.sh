@@ -70,6 +70,7 @@ brew install --cask brave-browser
 brew install --cask ghostty
 brew install --cask visual-studio-code
 brew install --cask bitwarden
+brew install --cask obsidian
 brew install --cask vlc
 brew install --cask font-fira-code-nerd-font
 
