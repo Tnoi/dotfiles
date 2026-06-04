@@ -76,7 +76,7 @@ vim.keymap.set('v', "<Tab>", ">gv", { desc = 'Indent right and reselect' })
 vim.keymap.set('v', "<S-Tab>", "<gv", { desc = 'Indent left and reselect' })
 
 vim.keymap.set('n', '<leader>n', '<cmd>enew<cr>', { desc = 'New' })
-vim.keymap.set('n', '<leader>w', '<cmd>w<cr>', { desc = 'Save' })
+vim.keymap.set('n', '<D-s>', '<cmd>w<cr>', { desc = 'Save' })
 vim.keymap.set('n', '<leader>qq', '<cmd>q<cr>', { desc = 'Quit' })
 vim.keymap.set('n', '<leader>q!', '<cmd>q!<cr>', { desc = 'Force quit' })
 
@@ -117,6 +117,8 @@ require("which-key").add({
     { "<leader>f", group = "find" },
     { "<leader>g", group = "git" },
     { "<leader>q", group = "quit" },
+
+    { "<leader>w", proxy = "<c-w>", group = "windows" },
 
     { "[",         group = "prev" },
     { "]",         group = "next" },
