@@ -133,10 +133,11 @@ require("fzf-lua").setup()
 require("neo-tree").setup({
     filesystem = {
         use_libuv_file_watcher = true,
+        follow_current_file = true,
         filtered_items = {
             visible = true,
             never_show = {
-                '.git',
+                '*.git',
             },
         },
     },
@@ -150,8 +151,8 @@ require("neo-tree").setup({
         },
         git_status = {
             symbols = {
-                added     = "",
-                modified  = "",
+                added     = "✚",
+                modified  = "",
                 deleted   = "✖",
                 renamed   = "󰁕",
 
