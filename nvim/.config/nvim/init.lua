@@ -109,9 +109,6 @@ vim.pack.add({
 
     'https://github.com/ibhagwan/fzf-lua',
 
-    'https://github.com/nhat-vo/neo-tree.nvim',
-    'https://github.com/MunifTanjim/nui.nvim',
-
     'https://github.com/nvim-mini/mini.nvim',
 
     'https://github.com/folke/which-key.nvim',
@@ -129,62 +126,6 @@ vim.cmd.colorscheme("gruvbox")
 require('lualine').setup({ options = { theme = 'gruvbox' } })
 
 require("fzf-lua").setup()
-
-require("neo-tree").setup({
-    filesystem = {
-        use_libuv_file_watcher = true,
-        follow_current_file = true,
-        filtered_items = {
-            visible = true,
-            never_show = {
-                '*.git',
-            },
-        },
-    },
-    window = {
-        width = 35
-    },
-    default_component_configs = {
-        icon = {
-            folder_empty = "󰜌",
-            folder_empty_open = "󰜌",
-        },
-        git_status = {
-            symbols = {
-                added     = "✚",
-                modified  = "",
-                deleted   = "✖",
-                renamed   = "󰁕",
-
-                untracked = "",
-                ignored   = "",
-                unstaged  = "󰄱",
-                staged    = "",
-                conflict  = "",
-            },
-        },
-    },
-    document_symbols = {
-        kinds = {
-            File = { icon = "󰈙", hl = "Tag" },
-            Namespace = { icon = "󰌗", hl = "Include" },
-            Package = { icon = "󰏖", hl = "Label" },
-            Class = { icon = "󰌗", hl = "Include" },
-            Property = { icon = "󰆧", hl = "@property" },
-            Enum = { icon = "󰒻", hl = "@number" },
-            Function = { icon = "󰊕", hl = "Function" },
-            String = { icon = "󰀬", hl = "String" },
-            Number = { icon = "󰎠", hl = "Number" },
-            Array = { icon = "󰅪", hl = "Type" },
-            Object = { icon = "󰅩", hl = "Type" },
-            Key = { icon = "󰌋", hl = "" },
-            Struct = { icon = "󰌗", hl = "Type" },
-            Operator = { icon = "󰆕", hl = "Operator" },
-            TypeParameter = { icon = "󰊄", hl = "Type" },
-            StaticMethod = { icon = '󰠄 ', hl = 'Function' },
-        }
-    },
-})
 
 require('mini.pairs').setup()
 require('mini.surround').setup()
