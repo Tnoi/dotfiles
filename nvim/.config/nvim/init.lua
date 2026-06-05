@@ -52,13 +52,12 @@ vim.keymap.set('n', '<leader>fb', function() require('fzf-lua').buffers() end, {
 vim.keymap.set('n', '<leader>fg', function() require('fzf-lua').live_grep() end, { desc = "Grep" })
 vim.keymap.set('n', '<leader>fr', function() require('fzf-lua').history() end, { desc = "History" })
 
-vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle<cr>', { desc = "Explorer" })
-
-vim.keymap.set("n", "<leader>gp", function() require('mini.diff').toggle_overlay() end, { desc = "Preview diff overlay" })
-
 vim.keymap.set('n', '<leader>y', function() require('yazi').yazi() end, { desc = "Yazi" })
 vim.keymap.set('n', '<leader>gg', function() require('lazygit').lazygit() end, { desc = "LazyGit" })
 
+vim.keymap.set("n", "<leader>gp", function() require('mini.diff').toggle_overlay() end, { desc = "Preview diff overlay" })
+
+vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle<cr>', { desc = "Explorer" })
 vim.keymap.set('n', '<leader>u', '<cmd>Undotree<cr>', { desc = "Undotree" })
 
 vim.keymap.set('n', '<leader>bn', '<cmd>enew<cr>', { desc = 'New buffer' })
