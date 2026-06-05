@@ -43,6 +43,7 @@ fi
 
 brew analytics off
 brew update
+brew upgrade
 
 echo "Installing Homebrew packages..."
 brew install coreutils
@@ -56,9 +57,6 @@ brew install zoxide
 brew install stow
 
 brew install python
-
-brew install shellcheck
-brew install shfmt
 
 brew install neovim
 brew install lazygit
