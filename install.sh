@@ -51,12 +51,16 @@ brew install grep
 brew install git
 brew install fd
 brew install fzf
+brew install ripgrep
 brew install exiftool
 brew install eza
 brew install zoxide
 brew install stow
 
 brew install python
+
+brew install shellcheck
+brew install shfmt
 
 brew install neovim
 brew install lazygit
@@ -106,3 +110,4 @@ echo "4. Set up Bitwarden"
 echo "5. Set up Brave Browser"
 
 echo "----- Finished macOS setup -----"
+

@@ -311,7 +311,7 @@ vim.lsp.config('clangd', {})
 vim.lsp.config('bashls', {
     settings = {
         bashIde = {
-            shellcheckPath = vim.fn.stdpath('data') .. '/mason/bin/shellcheck',
+            shellcheckPath = '/usr/local/bin/shellcheck',
         },
     },
 })
@@ -328,13 +328,13 @@ require('mason-tool-installer').setup({
         'prettierd',
         'shfmt',
         'clang-format',
-        'ruff', -- used by conform as ruff_format
+        'ruff',
 
         -- Linters
         'shellcheck',
     },
     auto_update = false,
-    run_on_start = true, -- installs missing tools on nvim start
+    run_on_start = true,
 })
 
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -378,38 +378,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 -- -----------------------------------------------------------------------------
--- Completion
--- -----------------------------------------------------------------------------
-require('blink.cmp').setup({
-    keymap = {
-        preset = 'super-tab',
-        ['<C-k>'] = { 'select_prev', 'fallback' },
-        ['<C-j>'] = { 'select_next', 'fallback' },
-        ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
-        ['<CR>'] = { 'accept', 'fallback' },
-    },
-    appearance = {
-        nerd_font_variant = 'mono',
-    },
-    completion = {
-        documentation = {
-            auto_show = false,
-            auto_show_delay_ms = 200,
-        },
-    },
-    sources = {
-        default = { 'lsp', 'path', 'buffer' },
-    },
-})
-
--- -----------------------------------------------------------------------------
 -- Formatting
 -- -----------------------------------------------------------------------------
 require('conform').setup({
     formatters_by_ft = {
         lua = { 'stylua' },
         python = { 'ruff' },
-        sh = { 'shfmt' },
+        bash = { 'shfmt' },
         c = { 'clang_format' },
         json = { 'prettierd' },
         markdown = { 'prettierd' },
@@ -438,4 +413,29 @@ vim.keymap.set('n', '<leader>f', function()
         end
     end)
 end, { desc = 'Format file' })
+
+-- -----------------------------------------------------------------------------
+-- Completion
+-- -----------------------------------------------------------------------------
+require('blink.cmp').setup({
+    keymap = {
+        preset = 'super-tab',
+        ['<C-k>'] = { 'select_prev', 'fallback' },
+        ['<C-j>'] = { 'select_next', 'fallback' },
+        ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+        ['<CR>'] = { 'accept', 'fallback' },
+    },
+    appearance = {
+        nerd_font_variant = 'mono',
+    },
+    completion = {
+        documentation = {
+            auto_show = false,
+            auto_show_delay_ms = 200,
+        },
+    },
+    sources = {
+        default = { 'lsp', 'path', 'buffer' },
+    },
+})
 
