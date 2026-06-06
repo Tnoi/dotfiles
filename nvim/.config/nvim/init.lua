@@ -167,6 +167,18 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     end,
 })
 
+-- Creates all intermediate directories in the path
+vim.api.nvim_create_autocmd('BufWritePre', {
+    group = group,
+    callback = function()
+        local file = vim.fn.expand('<afile>')
+        local dir = vim.fn.fnamemodify(file, ':h')
+        if vim.fn.isdirectory(dir) == 0 then
+            vim.fn.mkdir(dir, 'p')
+        end
+    end,
+})
+
 -- Restore trailing newline after formatting
 vim.api.nvim_create_autocmd('BufWritePre', {
     group = group,
