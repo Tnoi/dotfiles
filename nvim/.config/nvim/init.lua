@@ -121,13 +121,17 @@ vim.keymap.set('n', '<leader>bd', function()
 end, { desc = 'Delete buffer' })
 
 -- Windows
-vim.keymap.set('n', '<leader>wv', '<cmd>vsplit<cr>', { desc = 'Split right' })
-vim.keymap.set('n', '<leader>wh', '<cmd>split<cr>', { desc = 'Split down' })
-vim.keymap.set('n', '<leader>wd', '<cmd>close<cr>', { desc = 'Close window' })
+vim.keymap.set('n', '<leader>v', '<cmd>vsplit<cr>', { desc = 'Split right' })
+vim.keymap.set('n', '<leader>h', '<cmd>split<cr>', { desc = 'Split down' })
+vim.keymap.set('n', '<leader>qw', '<cmd>close<cr>', { desc = 'Close window' })
 vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Go to left window' })
 vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Go to right window' })
 vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Go to lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Go to upper window' })
+vim.keymap.set('n', '<C-Up>', '<cmd>resize +2<cr>', { desc = 'Increase window height' })
+vim.keymap.set('n', '<C-Down>', '<cmd>resize -2<cr>', { desc = 'Decrease window height' })
+vim.keymap.set('n', '<C-Left>', '<cmd>vertical resize -2<cr>', { desc = 'Decrease window width' })
+vim.keymap.set('n', '<C-Right>', '<cmd>vertical resize +2<cr>', { desc = 'Increase window width' })
 
 -- Navigation
 vim.keymap.set('n', 'n', 'nzzzv', { desc = 'Next search result (centered)' })
@@ -151,6 +155,7 @@ vim.keymap.set('v', '<S-Tab>', '<gv', { desc = 'Indent left and reselect' })
 
 -- Save / Quit
 vim.keymap.set({ 'n', 'i' }, '<D-s>', '<Esc><cmd>w<cr>', { desc = 'Save' })
+vim.keymap.set({ 'n', 'i' }, '<leader>w', '<Esc><cmd>w<cr>', { desc = 'Save' })
 vim.keymap.set('n', '<leader>qq', '<cmd>q<cr>', { desc = 'Quit' })
 vim.keymap.set('n', '<leader>q!', '<cmd>q!<cr>', { desc = 'Force quit' })
 
