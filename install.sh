@@ -108,6 +108,7 @@ echo "2. Set up Raycast"
 echo "3. Set up Visual Studio Code"
 echo "4. Set up Bitwarden"
 echo "5. Set up Brave Browser"
+echo "6. Set up Amphetamine"
 
 echo "----- Finished macOS setup -----"
 

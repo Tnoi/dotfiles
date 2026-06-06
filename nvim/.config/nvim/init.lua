@@ -95,7 +95,7 @@ vim.keymap.set('n', '<leader>?', function()
 end, { desc = 'Keymaps' })
 
 -- Terminal
-vim.keymap.set('n', '<leader>t', '<cmd>ToggleTerm direction=vertical size=60<cr>', { desc = 'Terminal' })
+vim.keymap.set('n', '<leader>t', '<cmd>ToggleTerm direction=vertical size=65<cr>', { desc = 'Terminal' })
 vim.keymap.set('n', '<leader>T', '<cmd>ToggleTerm direction=float size=80<cr>', { desc = 'Terminal float' })
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 

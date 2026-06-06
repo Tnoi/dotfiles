@@ -4,6 +4,7 @@
 # @raycast.title Yazi
 # @raycast.mode fullOutput
 #
-# @raycast.icon 📁
+# @raycast.icon 
 
 open -na Ghostty.app --args -e yazi "$@" --cwd-file="$(mktemp -t "yazi-cwd.XXXXXX")"
+
