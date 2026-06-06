@@ -61,6 +61,10 @@
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
+    "toggleterm.nvim": {
+      "rev": "9a88eae817ef395952e08650b3283726786fb5fb",
+      "src": "https://github.com/akinsho/toggleterm.nvim"
+    },
     "yazi.nvim": {
       "rev": "b65e0d6447518aaa3612f0890aa21dc7f45e4e65",
       "src": "https://github.com/mikavilpas/yazi.nvim"

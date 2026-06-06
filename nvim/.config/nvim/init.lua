@@ -23,6 +23,8 @@ vim.opt.smartcase = true
 
 vim.opt.signcolumn = 'yes'
 vim.opt.statuscolumn = '%l %s'
+vim.opt.colorcolumn = '120'
+vim.opt.showmode = false
 vim.opt.showmatch = true
 vim.opt.smoothscroll = true
 vim.opt.fillchars = { eob = ' ' }
@@ -44,6 +46,8 @@ vim.opt.clipboard:append('unnamedplus')
 vim.opt.foldlevel = 999
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+
+vim.opt.autochdir = false
 
 vim.opt.updatetime = 300
 vim.opt.timeoutlen = 500
@@ -80,7 +84,7 @@ end, { desc = 'Files' })
 vim.keymap.set('n', '<leader>sg', function()
     require('fzf-lua').live_grep()
 end, { desc = 'Grep' })
-vim.keymap.set('n', '<leader>sr', function()
+vim.keymap.set('n', '<leader>s.', function()
     require('fzf-lua').oldfiles()
 end, { desc = 'Oldfiles' })
 vim.keymap.set('n', '<leader>/', function()
@@ -89,6 +93,8 @@ end, { desc = 'Buffer Grep' })
 vim.keymap.set('n', '<leader>?', function()
     require('fzf-lua').keymaps()
 end, { desc = 'Keymaps' })
+
+-- Terminal
 
 -- Tools
 vim.keymap.set('n', '<leader>y', function()
@@ -169,6 +175,17 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     end,
 })
 
+-- Set the working directory based on the argument you passed
+vim.api.nvim_create_autocmd('VimEnter', {
+    group = group,
+    callback = function()
+        local arg = vim.fn.argv(0)
+        if arg and vim.fn.isdirectory(arg) == 1 then
+            vim.cmd.cd(arg)
+        end
+    end,
+})
+
 -- =============================================================================
 -- PLUGINS
 -- =============================================================================
@@ -193,6 +210,8 @@ vim.pack.add({
 
     { src = 'https://github.com/stevearc/conform.nvim' },
 
+    { src = 'https://github.com/akinsho/toggleterm.nvim' },
+
     { src = 'https://github.com/mikavilpas/yazi.nvim' },
     { src = 'https://github.com/kdheepak/lazygit.nvim' },
     { src = 'https://github.com/nvim-lua/plenary.nvim' },
@@ -215,6 +234,9 @@ vim.api.nvim_set_hl(0, 'DiagnosticSignWarn', { bg = 'NONE', fg = '#e3a84e' })
 vim.api.nvim_set_hl(0, 'DiagnosticSignInfo', { bg = 'NONE', fg = '#7daea3' })
 vim.api.nvim_set_hl(0, 'DiagnosticSignHint', { bg = 'NONE', fg = '#a9b665' })
 
+vim.api.nvim_set_hl(0, 'CursorLine', { bg = '#282828' })
+vim.api.nvim_set_hl(0, 'ColorColumn', { bg = '#282828' })
+
 vim.api.nvim_set_hl(0, 'FloatBorder', { fg = '#3c3830', bg = 'NONE' })
 vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'NONE' })
 
@@ -224,7 +246,7 @@ vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'NONE' })
 require('lualine').setup({
     options = {
         theme = 'gruvbox',
-        globalstatus = true, -- single statusline across all windows
+        globalstatus = true,
     },
     sections = {
         lualine_b = {
@@ -243,6 +265,9 @@ require('lualine').setup({
 -- Fuzzy Finder
 -- -----------------------------------------------------------------------------
 require('fzf-lua').setup({
+    files = {
+        cwd_prompt = false,
+    },
     winopts = {
         height = 0.85,
         width = 0.85,
@@ -277,7 +302,7 @@ require('mini.diff').setup({
 require('fidget').setup({
     notification = {
         window = {
-            winblend = 0, -- transparency, 0 = opaque
+            winblend = 0,
             border = 'rounded',
         },
     },
@@ -325,10 +350,10 @@ require('mason-tool-installer').setup({
     ensure_installed = {
         -- Formatters
         'stylua',
-        'prettierd',
+        'ruff',
         'shfmt',
         'clang-format',
-        'ruff',
+        'prettierd',
 
         -- Linters
         'shellcheck',
@@ -385,6 +410,7 @@ require('conform').setup({
         lua = { 'stylua' },
         python = { 'ruff' },
         bash = { 'shfmt' },
+        sh = { 'shfmt' },
         c = { 'clang_format' },
         json = { 'prettierd' },
         markdown = { 'prettierd' },
@@ -438,4 +464,15 @@ require('blink.cmp').setup({
         default = { 'lsp', 'path', 'buffer' },
     },
 })
+
+-- -----------------------------------------------------------------------------
+-- Terminal
+-- -----------------------------------------------------------------------------
+require('toggleterm').setup({
+    float_opts = { border = 'rounded' },
+})
+
+vim.keymap.set('n', '<leader>t', '<cmd>ToggleTerm direction=vertical size=60<cr>', { desc = 'Terminal' })
+vim.keymap.set('n', '<leader>T', '<cmd>ToggleTerm direction=float size=80<cr>', { desc = 'Terminal float' })
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
