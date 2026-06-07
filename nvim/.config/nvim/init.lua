@@ -94,10 +94,15 @@ vim.keymap.set('n', '<leader>?', function()
     require('fzf-lua').keymaps()
 end, { desc = 'Keymaps' })
 
--- Terminal
-vim.keymap.set('n', '<leader>t', '<cmd>ToggleTerm direction=vertical size=65<cr>', { desc = 'Terminal' })
-vim.keymap.set('n', '<leader>T', '<cmd>ToggleTerm direction=float size=80<cr>', { desc = 'Terminal float' })
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+-- Format
+vim.keymap.set('n', '<leader>f', function()
+    require('conform').format({ async = true }, function()
+        local last_line = vim.fn.line('$')
+        if vim.fn.getline(last_line) ~= '' then
+            vim.fn.append(last_line, '')
+        end
+    end)
+end, { desc = 'Format file' })
 
 -- Tools
 vim.keymap.set('n', '<leader>y', function()
@@ -133,11 +138,19 @@ vim.keymap.set('n', '<C-Down>', '<cmd>resize -2<cr>', { desc = 'Decrease window 
 vim.keymap.set('n', '<C-Left>', '<cmd>vertical resize -2<cr>', { desc = 'Decrease window width' })
 vim.keymap.set('n', '<C-Right>', '<cmd>vertical resize +2<cr>', { desc = 'Increase window width' })
 
+-- Terminal
+vim.keymap.set({ 'n', 't' }, '<leader>t', '<cmd>ToggleTerm direction=float size=80<cr>', { desc = 'Terminal float' })
+vim.keymap.set({ 'n', 't' }, '<leader>T', '<cmd>ToggleTerm direction=vertical size=65<cr>', { desc = 'Terminal' })
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+
 -- Navigation
 vim.keymap.set('n', 'n', 'nzzzv', { desc = 'Next search result (centered)' })
 vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'Prev search result (centered)' })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Half page up (centered)' })
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Half page down (centered)' })
+
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Next diagnostic' })
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Prev diagnostic' })
 
 -- Move lines
 vim.keymap.set('n', '<D-k>', ':m .-2<cr>==', { desc = 'Move line up' })
@@ -155,9 +168,12 @@ vim.keymap.set('v', '<S-Tab>', '<gv', { desc = 'Indent left and reselect' })
 
 -- Save / Quit
 vim.keymap.set({ 'n', 'i' }, '<D-s>', '<Esc><cmd>w<cr>', { desc = 'Save' })
-vim.keymap.set({ 'n', 'i' }, '<leader>w', '<Esc><cmd>w<cr>', { desc = 'Save' })
+vim.keymap.set('n', '<leader>w', '<Esc><cmd>w<cr>', { desc = 'Save' })
 vim.keymap.set('n', '<leader>qq', '<cmd>q<cr>', { desc = 'Quit' })
 vim.keymap.set('n', '<leader>q!', '<cmd>q!<cr>', { desc = 'Force quit' })
+
+-- Others
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<cr>', { desc = 'Clear search highlight' })
 
 -- =============================================================================
 -- AUTOCOMMANDS
@@ -172,30 +188,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     end,
 })
 
--- Creates all intermediate directories in the path
-vim.api.nvim_create_autocmd('BufWritePre', {
-    group = group,
-    callback = function()
-        local file = vim.fn.expand('<afile>')
-        local dir = vim.fn.fnamemodify(file, ':h')
-        if vim.fn.isdirectory(dir) == 0 then
-            vim.fn.mkdir(dir, 'p')
-        end
-    end,
-})
-
--- Restore trailing newline after formatting
-vim.api.nvim_create_autocmd('BufWritePre', {
-    group = group,
-    callback = function()
-        local last_line = vim.fn.line('$')
-        if vim.fn.getline(last_line) ~= '' then
-            vim.fn.append(last_line, '')
-        end
-    end,
-})
-
--- Set the working directory based on the argument you passed
+-- Set cwd based on the argument you passed
 vim.api.nvim_create_autocmd('VimEnter', {
     group = group,
     callback = function()
@@ -203,6 +196,66 @@ vim.api.nvim_create_autocmd('VimEnter', {
         if arg and vim.fn.isdirectory(arg) == 1 then
             vim.cmd.cd(arg)
         end
+    end,
+})
+
+-- Actions on save
+vim.api.nvim_create_autocmd('BufWritePre', {
+    group = group,
+    callback = function()
+        -- Create intermediate directories
+        local file = vim.fn.expand('<afile>')
+        local dir = vim.fn.fnamemodify(file, ':h')
+        if vim.fn.isdirectory(dir) == 0 then
+            vim.fn.mkdir(dir, 'p')
+        end
+
+        -- Restore trailing newline
+        local last_line = vim.fn.line('$')
+        if vim.fn.getline(last_line) ~= '' then
+            vim.fn.append(last_line, '')
+        end
+    end,
+})
+
+-- LSP keymaps on attach
+vim.api.nvim_create_autocmd('LspAttach', {
+    group = vim.api.nvim_create_augroup('lsp-keymaps', { clear = true }),
+    callback = function(event)
+        local map = function(keys, func, desc)
+            vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+        end
+
+        map('grr', function()
+            require('fzf-lua').lsp_references()
+        end, 'Goto references')
+        map('grd', function()
+            require('fzf-lua').lsp_definitions()
+        end, 'Goto definition')
+        map('grt', function()
+            require('fzf-lua').lsp_typedefs()
+        end, 'Goto type definition')
+        map('gri', function()
+            require('fzf-lua').lsp_implementations()
+        end, 'Goto implementation')
+        map('gO', function()
+            require('fzf-lua').lsp_document_symbols()
+        end, 'Goto document symbols')
+        map('gW', function()
+            require('fzf-lua').lsp_workspace_symbols()
+        end, 'Goto workspace symbols')
+        map('<leader>sd', function()
+            require('fzf-lua').diagnostics_document()
+        end, 'Document diagnostics')
+        map('<leader>sD', function()
+            require('fzf-lua').diagnostics_workspace()
+        end, 'Workspace diagnostics')
+        map('gra', function()
+            require('fzf-lua').lsp_code_actions()
+        end, 'Code action')
+
+        map('grn', vim.lsp.buf.rename, 'Rename symbol')
+        map('grl', vim.diagnostic.open_float, 'Line diagnostics')
     end,
 })
 
@@ -245,20 +298,19 @@ vim.cmd.packadd('nvim.undotree')
 require('gruvbox').setup({ contrast = 'hard' })
 vim.cmd.colorscheme('gruvbox')
 
-vim.api.nvim_set_hl(0, 'SignColumn', { bg = 'NONE' })
-vim.api.nvim_set_hl(0, 'LineNr', { bg = 'NONE' })
 vim.api.nvim_set_hl(0, 'CursorLineNr', { bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'SignColumn', { bg = 'NONE' })
+
+vim.api.nvim_set_hl(0, 'CursorLine', { bg = '#252525' })
+vim.api.nvim_set_hl(0, 'ColorColumn', { bg = '#252525' })
+
+vim.api.nvim_set_hl(0, 'FloatBorder', { fg = '#3c3830', bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'NONE' })
 
 vim.api.nvim_set_hl(0, 'DiagnosticSignError', { bg = 'NONE', fg = '#ea6962' })
 vim.api.nvim_set_hl(0, 'DiagnosticSignWarn', { bg = 'NONE', fg = '#e3a84e' })
 vim.api.nvim_set_hl(0, 'DiagnosticSignInfo', { bg = 'NONE', fg = '#7daea3' })
 vim.api.nvim_set_hl(0, 'DiagnosticSignHint', { bg = 'NONE', fg = '#a9b665' })
-
-vim.api.nvim_set_hl(0, 'CursorLine', { bg = '#282828' })
-vim.api.nvim_set_hl(0, 'ColorColumn', { bg = '#282828' })
-
-vim.api.nvim_set_hl(0, 'FloatBorder', { fg = '#3c3830', bg = 'NONE' })
-vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'NONE' })
 
 -- -----------------------------------------------------------------------------
 -- Statusline
@@ -298,6 +350,8 @@ require('fzf-lua').setup({
     },
 })
 
+-- require('fzf-lua').register_ui_select()
+
 -- -----------------------------------------------------------------------------
 -- Mini plugins
 -- -----------------------------------------------------------------------------
@@ -336,8 +390,8 @@ require('mason-lspconfig').setup({
     ensure_installed = {
         'lua_ls',
         'basedpyright',
-        'clangd',
         'bashls',
+        'clangd',
         'jsonls',
         'marksman',
     },
@@ -351,8 +405,17 @@ vim.lsp.config('lua_ls', {
         },
     },
 })
-vim.lsp.config('basedpyright', {})
-vim.lsp.config('clangd', {})
+vim.lsp.config('basedpyright', {
+    settings = {
+        basedpyright = {
+            analysis = {
+                autoSearchPaths = true,
+                diagnosticMode = 'openFilesOnly',
+                typeCheckingMode = 'standard',
+            },
+        },
+    },
+})
 vim.lsp.config('bashls', {
     settings = {
         bashIde = {
@@ -360,12 +423,13 @@ vim.lsp.config('bashls', {
         },
     },
 })
+vim.lsp.config('clangd', {})
 vim.lsp.config('jsonls', {})
 vim.lsp.config('marksman', { filetypes = { 'markdown' } })
 
-vim.lsp.config('stylua', { enabled = false })
-vim.lsp.config('ruff', { enabled = false })
-
+-- -----------------------------------------------------------------------------
+-- Formatting
+-- -----------------------------------------------------------------------------
 require('mason-tool-installer').setup({
     ensure_installed = {
         -- Formatters
@@ -382,53 +446,16 @@ require('mason-tool-installer').setup({
     run_on_start = true,
 })
 
-vim.api.nvim_create_autocmd('LspAttach', {
-    group = vim.api.nvim_create_augroup('lsp-keymaps', { clear = true }),
-    callback = function(event)
-        local map = function(keys, func, desc)
-            vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
-        end
+vim.lsp.config('stylua', { enabled = false })
+vim.lsp.config('ruff', { enabled = false })
 
-        map('grr', function()
-            require('fzf-lua').lsp_references()
-        end, 'Goto references')
-        map('grd', function()
-            require('fzf-lua').lsp_definitions()
-        end, 'Goto definition')
-        map('grt', function()
-            require('fzf-lua').lsp_typedefs()
-        end, 'Goto type definition')
-        map('gri', function()
-            require('fzf-lua').lsp_implementations()
-        end, 'Goto implementation')
-        map('gO', function()
-            require('fzf-lua').lsp_document_symbols()
-        end, 'Goto document symbols')
-        map('gW', function()
-            require('fzf-lua').lsp_workspace_symbols()
-        end, 'Goto workspace symbols')
-        map('<leader>sd', function()
-            require('fzf-lua').diagnostics_document()
-        end, 'Document diagnostics')
-        map('<leader>sD', function()
-            require('fzf-lua').diagnostics_workspace()
-        end, 'Workspace diagnostics')
-        map('gra', function()
-            require('fzf-lua').lsp_code_actions()
-        end, 'Code action')
+vim.lsp.enable('stylua', false)
+vim.lsp.enable('ruff', false)
 
-        map('grn', vim.lsp.buf.rename, 'Rename symbol')
-        map('grl', vim.diagnostic.open_float, 'Line diagnostics')
-    end,
-})
-
--- -----------------------------------------------------------------------------
--- Formatting
--- -----------------------------------------------------------------------------
 require('conform').setup({
     formatters_by_ft = {
         lua = { 'stylua' },
-        python = { 'ruff' },
+        python = { 'ruff_format' },
         bash = { 'shfmt' },
         sh = { 'shfmt' },
         c = { 'clang_format' },
@@ -450,15 +477,6 @@ require('conform').setup({
         },
     },
 })
-
-vim.keymap.set('n', '<leader>f', function()
-    require('conform').format({ async = true }, function()
-        local last_line = vim.fn.line('$')
-        if vim.fn.getline(last_line) ~= '' then
-            vim.fn.append(last_line, '')
-        end
-    end)
-end, { desc = 'Format file' })
 
 -- -----------------------------------------------------------------------------
 -- Completion
