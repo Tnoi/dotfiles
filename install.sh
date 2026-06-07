@@ -67,15 +67,20 @@ brew install lazygit
 brew install yazi
 
 echo "Installing Homebrew cask applications..."
-brew install --cask raycast
-brew install --cask brave-browser
-brew install --cask ghostty
-brew install --cask claude
-brew install --cask visual-studio-code
-brew install --cask bitwarden
-brew install --cask obsidian
-brew install --cask vlc
 brew install --cask font-fira-code-nerd-font
+
+brew install --cask ghostty
+brew install --cask raycast
+
+brew install --cask brave-browser
+brew install --cask bitwarden
+brew install --cask vlc
+
+brew install --cask visual-studio-code
+brew install --cask obsidian
+
+brew install --cask claude
+brew install --cask superwhisper
 
 brew cleanup
 
