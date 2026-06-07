@@ -35,9 +35,9 @@ alias mkdir='mkdir -p'
 alias root='cd /'
 alias home='cd $HOME'
 
-alias python3='/usr/local/bin/python3.14'
-alias python='/usr/local/bin/python3.14'
-alias py='/usr/local/bin/python3.14'
+alias python3='python3.14'
+alias python='python3.14'
+alias py='python3.14'
 
 # functions
 function y() {

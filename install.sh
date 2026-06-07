@@ -70,6 +70,7 @@ echo "Installing Homebrew cask applications..."
 brew install --cask raycast
 brew install --cask brave-browser
 brew install --cask ghostty
+brew install --cask claude
 brew install --cask visual-studio-code
 brew install --cask bitwarden
 brew install --cask obsidian
@@ -91,7 +92,7 @@ fi
 echo "Stowing dotfiles..."
 cd "$HOME/.dotfiles" || exit
 
-stow -R -t "$HOME" ghostty home nvim raycast wallpapers yazi zsh
+stow -R -t "$HOME" ghostty home lazygit nvim raycast wallpapers yazi zsh
 
 # setup zsh4humans
 echo "Installing zsh4humans..."
