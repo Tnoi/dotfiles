@@ -1,7 +1,7 @@
 [gpg]
     format = ssh
 [user]
-	name = toni
+    name = toni
     email = tmunozferrer@gmail.com
     signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOBoanbBADPcqvfpZ27UlzBhjHBSrAfA4TdFXim0pP5s
 [core]
@@ -9,3 +9,4 @@
 	excludesfile = ~/.gitignore
 [commit]
     gpgsign = true
+
