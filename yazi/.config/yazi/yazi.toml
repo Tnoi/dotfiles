@@ -58,6 +58,7 @@ reveal = [
 	{ run = "clear; exiftool %s1; echo 'Press enter to exit'; read _", desc = "Show EXIF", for = "unix", block = true },
 ]
 extract = [
+	{ run = "unzip '$s1'", desc = "Unzip", for = "unix" },
 	{ run = "ya pub extract --list %s", desc = "Extract here" },
 ]
 download = [
@@ -246,3 +247,4 @@ sort_by      	 = "none"
 sort_sensitive = false
 sort_reverse 	 = false
 sort_translit  = false
+

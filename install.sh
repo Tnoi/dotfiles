@@ -66,6 +66,8 @@ brew install neovim
 brew install lazygit
 brew install yazi
 
+ya pkg add XYenon/clipboard
+
 echo "Installing Homebrew cask applications..."
 brew install --cask font-fira-code-nerd-font
 
