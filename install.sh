@@ -53,6 +53,7 @@ brew install fd
 brew install fzf
 brew install ripgrep
 brew install exiftool
+brew install poppler
 brew install eza
 brew install zoxide
 brew install stow
