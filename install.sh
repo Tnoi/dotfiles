@@ -83,6 +83,7 @@ brew install --cask visual-studio-code
 brew install --cask obsidian
 
 brew install --cask claude
+brew install --cask claude-code
 brew install --cask superwhisper
 
 brew cleanup
