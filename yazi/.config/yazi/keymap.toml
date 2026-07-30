@@ -133,6 +133,8 @@ keymap = [
 	{ on = [ "g", "f" ],       run = "follow",           desc = "Follow hovered symlink" },
 
     { on = [ "g", "i" ],       run = "cd ~/Library/Mobile\\ Documents/com~apple~CloudDocs",    desc = "Go iCloud Drive" },
+    { on = [ "g", "o" ],       run = "cd ~/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/brain",    desc = "Go Obsidian brain" },
+
 
 	# Tabs
 	{ on = [ "t", "t" ], run = "tab_create --current",     desc = "Create a new tab in CWD" },
